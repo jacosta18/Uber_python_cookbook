@@ -8,13 +8,13 @@ apt_update 'update_sources' do
 end
 
 package 'python' do
+  action [:enable, :start]
+end
+
+package 'python' do
   action :install
 end
 
 package 'python-pip' do
   action :install
-end
-
-package 'python' do
-  action [:enable, :start]
 end

@@ -14,10 +14,10 @@ describe package('python-pip') do
   it { should be_installed }
 end
 
-describe service('python') do
-  it { should be_running }
+describe package('libncurses5') do
+  it {should be_installed}
 end
 
-describe package('python') do
-  it { should be_enabled }
+describe package('libffi') do
+  it {should be_installed}
 end
