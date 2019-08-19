@@ -16,21 +16,24 @@ describe 'python::default' do
       expect { chef_run }.to_not raise_error
     end
 
+    it 'should update the souces list' do
+      expect(chef_run).to update_apt_update 'update_sources'
+    end
+
     it 'should install python' do
-        expect(chef_run).to install_package 'python'
-      end
+      expect(chef_run).to install_package 'python'
+    end
 
-      # it 'should install nodejs' do
-      #   expect(chef_run).to install_package 'nodejs'
-      # end
+    it 'should install pip for python' do
+      expect(chef_run).to install_package 'python-pip'
+    end
 
-      it 'should enable the python service' do
-        expect(chef_run).to enable_service 'python'
-      end
+    it 'should enable the python service' do
+      expect(chef_run).to enable_package 'python'
+    end
 
-      it 'should start the python service' do
-        expect(chef_run).to start_service 'python'
-      end
-
+    it 'should start the python service' do
+      expect(chef_run).to start_package 'python'
+    end
   end
 end

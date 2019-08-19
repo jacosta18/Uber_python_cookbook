@@ -7,8 +7,14 @@ apt_update 'update_sources' do
   action :update
 end
 
-package 'python'
-#package 'nodejs'
-service 'python' do
+package 'python' do
+  action :install
+end
+
+package 'python-pip' do
+  action :install
+end
+
+package 'python' do
   action [:enable, :start]
 end
